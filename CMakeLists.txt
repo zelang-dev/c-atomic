@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 2.8...3.14)
 
 project(
-    c89atomic
+    c-atomic
     VERSION 0.0.0
     DESCRIPTION "C89 compatible atomics."
-    HOMEPAGE_URL "https://github.com/mackron/c89atomic"
+    HOMEPAGE_URL "https://github.com/zelang-dev/c-atomic"
     LANGUAGES C
 )
 
