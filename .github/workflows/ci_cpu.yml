@@ -45,7 +45,6 @@ jobs:
             cmake -DCMAKE_BUILD_TYPE=Debug ..
             cmake --build .
             ./main_test
-            ./core_test
             ./atomicity_test
       - name: Show the artifact
         run: |

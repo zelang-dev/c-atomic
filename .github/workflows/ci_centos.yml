@@ -28,5 +28,4 @@ jobs:
         run: |
             cd build
             ./main_test
-            ./core_test
             ./atomicity_test

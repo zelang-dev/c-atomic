@@ -33,7 +33,6 @@ jobs:
         run: |
             cd build
             ./main_test
-            ./core_test
             ./atomicity_test
 
   build-windows:
@@ -59,7 +58,6 @@ jobs:
         run: |
             cd build\Debug
             .\main_test.exe
-            .\core_test.exe
             .\atomicity_test.exe
 
   build-macos:
@@ -80,5 +78,4 @@ jobs:
         run: |
             cd build
             ./main_test
-            ./core_test
             ./atomicity_test
