@@ -148,7 +148,7 @@ no_increment:
         idx = atomic_load_explicit(&node->front, memory_order_consume);
         if (!IS_READABLE(idx, node)) {
             if (node != spmc->curr_enqueue)
-                atomic_compare_exchange_strong(&spmc->curr_dequeue, (c89atomic_uint64 *) & node,
+                atomic_compare_exchange_strong(&spmc->curr_dequeue, &node,
                                                atomic_load_explicit(&node->next, memory_order_consume));
             goto no_increment;
         } else
