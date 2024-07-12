@@ -1,6 +1,6 @@
 #include <limits.h>
 #include <stdint.h>
-#include <c89atomic.h>
+#include <catomic.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <assert.h>
