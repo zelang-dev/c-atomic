@@ -10,10 +10,10 @@
 static void test_atomic_flag(void) {
     atomic_flag flag = 0;
 
-    CHK_EXPECTED(0, atomic_flag_test_and_set(&flag));
-    CHK_EXPECTED(1, atomic_flag_test_and_set(&flag));
+    CHK_EXPECTED(0, (int)atomic_flag_test_and_set(&flag));
+    CHK_EXPECTED(1, (int)atomic_flag_test_and_set(&flag));
     atomic_flag_clear(&flag);
-    CHK_EXPECTED(0, atomic_flag_test_and_set(&flag));
+    CHK_EXPECTED(0, (int)atomic_flag_test_and_set(&flag));
 }
 
 /* Test atomic_fetch_add */
@@ -22,14 +22,14 @@ static void test_atomic_inc_positive(void) {
     atomic_init(&res, 0);
     int i;
 
-    CHK_EXPECTED(0, atomic_fetch_add(&res, 1));
-    CHK_EXPECTED(1, atomic_load(&res));
-    CHK_EXPECTED(1, atomic_fetch_add(&res, 1));
-    CHK_EXPECTED(2, atomic_load(&res));
+    CHK_EXPECTED(0, (int)atomic_fetch_add(&res, 1));
+    CHK_EXPECTED(1, (int)atomic_load(&res));
+    CHK_EXPECTED(1, (int)atomic_fetch_add(&res, 1));
+    CHK_EXPECTED(2, (int)atomic_load(&res));
     atomic_store(&res, 0);
     for (i = 0; i < 512; ++i) {
-        CHK_EXPECTED(i, atomic_fetch_add(&res, 1));
-        CHK_EXPECTED(i + 1, atomic_load(&res));
+        CHK_EXPECTED(i, (int)atomic_fetch_add(&res, 1));
+        CHK_EXPECTED(i + 1, (int)atomic_load(&res));
     }
 }
 
@@ -39,8 +39,8 @@ static void test_atomic_inc_negative(void) {
     int i;
 
     for (i = -99; i < 123; ++i) {
-        CHK_EXPECTED(i, atomic_fetch_add(&res, 1));
-        CHK_EXPECTED(i + 1, atomic_load(&res));
+        CHK_EXPECTED(i, (int)atomic_fetch_add(&res, 1));
+        CHK_EXPECTED(i + 1, (int)atomic_load(&res));
     }
 }
 
