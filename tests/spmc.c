@@ -217,7 +217,7 @@ int main() {
         thread_join(mc[i]);
 
     for (i = 0; i < N_MC_ITEMS; ++i) {
-        if (observed_count[i] == 1)
+        CHK_EXPECTED(observed_count[i], 1);
             continue;
         fprintf(stderr, "An item seen %zu times: %zu.\n", observed_count[i], i);
     }
