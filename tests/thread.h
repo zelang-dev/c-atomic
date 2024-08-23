@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#include <stddef.h>
+
 struct thread_arg {
     void (*fn)(void *);
     void *arg;

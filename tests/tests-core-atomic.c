@@ -54,11 +54,11 @@ static void test_atomic_inc_rollover(void) {
         CHK_EXPECTED(INT_MAX - 30 + i + 1, atomic_load(&res));
     }
     CHK_EXPECTED(INT_MAX, atomic_fetch_add(&res, 1));
-    CHK_EXPECTED(INT_MIN, atomic_load(&res));
-    CHK_EXPECTED(INT_MIN, atomic_fetch_add(&res, 1));
-    CHK_EXPECTED(INT_MIN + 1, atomic_load(&res));
-    CHK_EXPECTED(INT_MIN + 1, atomic_fetch_add(&res, 1));
-    CHK_EXPECTED(INT_MIN + 2, atomic_load(&res));
+    CHK_EXPECTED(INT_MIN, (int)atomic_load(&res));
+    CHK_EXPECTED(INT_MIN, (int)atomic_fetch_add(&res, 1));
+    CHK_EXPECTED(INT_MIN + 1, (int)atomic_load(&res));
+    CHK_EXPECTED(INT_MIN + 1, (int)atomic_fetch_add(&res, 1));
+    CHK_EXPECTED(INT_MIN + 2, (int)atomic_load(&res));
 }
 
 /* Test atomic_fetch_sub */
@@ -99,11 +99,11 @@ static void test_atomic_dec_rollover(void) {
         CHK_EXPECTED(INT_MIN + 30 - i - 1, atomic_load(&res));
     }
     CHK_EXPECTED(INT_MIN, atomic_fetch_sub(&res, 1));
-    CHK_EXPECTED(INT_MAX, atomic_load(&res));
-    CHK_EXPECTED(INT_MAX, atomic_fetch_sub(&res, 1));
-    CHK_EXPECTED(INT_MAX - 1, atomic_load(&res));
-    CHK_EXPECTED(INT_MAX - 1, atomic_fetch_sub(&res, 1));
-    CHK_EXPECTED(INT_MAX - 2, atomic_load(&res));
+    CHK_EXPECTED(INT_MAX, (int)atomic_load(&res));
+    CHK_EXPECTED(INT_MAX, (int)atomic_fetch_sub(&res, 1));
+    CHK_EXPECTED(INT_MAX - 1, (int)atomic_load(&res));
+    CHK_EXPECTED(INT_MAX - 1, (int)atomic_fetch_sub(&res, 1));
+    CHK_EXPECTED(INT_MAX - 2, (int)atomic_load(&res));
 }
 
 /* Test atomic_cas with a correct old value */

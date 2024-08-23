@@ -6,7 +6,7 @@ This library aims to implement an equivalent to the C11 atomics library. It's in
 
 This **fork** is _WIP_ for an drop-in replacement to [C11 atomics](https://en.cppreference.com/w/c/atomic).
 
-For _general usage on how to use_, see [Chapter 40 Atomics](https://beej.us/guide/bgc/html/split/chapter-atomics.html#lock-free-atomic) in **Beej's Guide to C Programming**, and [An Introduction to Lock-Free Programming](https://preshing.com/20120612/an-introduction-to-lock-free-programming).
+For _general usage on how to use_, see [Chapter 40 Atomics](https://beej.us/guide/bgc/html/split/chapter-atomics.html#lock-free-atomic) in **Beej's Guide to C Programming**, [An Introduction to Lock-Free Programming](https://preshing.com/20120612/an-introduction-to-lock-free-programming), and [Microsoft Windows: Atomic ops and memory barriers](https://billauer.co.il/blog/2021/05/windows-atomic-memory-fences/)
 
 -----
 

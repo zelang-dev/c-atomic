@@ -47,7 +47,7 @@ thread_entry(void *argptr) {
 void assert_expected(size_t res, size_t expected, const char *file, unsigned int line, const char *expr, const char *expected_str) {
     if (res != expected) {
         fflush(stdout);
-        fprintf(stderr, "%s:%u: %s: error %d, expected %s\n", file, line, expr, res, expected_str);
+        fprintf(stderr, "%s:%u: %s: error %zu, expected %s\n", file, line, expr, res, expected_str);
         abort();
     }
 }
