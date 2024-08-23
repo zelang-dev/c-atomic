@@ -111,29 +111,6 @@ typedef unsigned char           c89atomic_bool;
 #   define c89atomic_is_lock_free(obj) (sizeof((obj)) <= sizeof(void *))
 #   define C89ATOMIC_INLINE __forceinline
 #elif defined(__GNUC__)
-#include <stddef.h>
-/* Return whether a size is lock free or not.  PTR is currently unused since
-   we're assuming alignment for the moment.  */
-c89atomic_bool __atomic_is_lock_free(size_t size, void *ptr __attribute__((unused))) {
-    /* __atomic_always_lock_free requires a compile time constant to evaluate
-       properly, so provide individual cases and simply fill in the constant.  */
-    switch (size) {
-        case 1:
-            return __atomic_always_lock_free(1, 0);
-        case 2:
-            return __atomic_always_lock_free(2, 0);
-        case 4:
-            return __atomic_always_lock_free(4, 0);
-        case 8:
-            return __atomic_always_lock_free(8, 0);
-        case 16:
-            return __atomic_always_lock_free(16, 0);
-        default:
-            break;
-      }
-    return 0;
-  }
-
     /*
     I've had a bug report where GCC is emitting warnings about functions possibly not being inlineable. This warning happens when
     the __attribute__((always_inline)) attribute is defined without an "inline" statement. I think therefore there must be some
@@ -1940,7 +1917,7 @@ functions are just implemented as inlined functions.
 #if defined(C89ATOMIC_64BIT)
     static C89ATOMIC_INLINE c89atomic_bool c89atomic_is_lock_free_ptr(volatile void** ptr)
     {
-        return c89atomic_is_lock_free_64((volatile c89atomic_uint64*)ptr);
+        return c89atomic_is_lock_free_64(ptr);
     }
 
     static C89ATOMIC_INLINE void* c89atomic_load_explicit_ptr(volatile void** ptr, c89atomic_memory_order order)
