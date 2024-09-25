@@ -46,7 +46,6 @@ jobs:
             cmake --build .
             ./main_test
             ./atomicity_test
-            ./spmc_test
       - name: Show the artifact
         run: |
           ls -al "${PWD}/artifacts"

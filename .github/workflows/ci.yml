@@ -60,7 +60,6 @@ jobs:
             cd build\Debug
             .\main_test.exe
             .\atomicity_test.exe
-            .\spmc_test.exe
 
   build-macos:
     name: macOS

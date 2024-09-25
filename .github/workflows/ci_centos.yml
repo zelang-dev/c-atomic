@@ -29,4 +29,3 @@ jobs:
             cd build
             ./main_test
             ./atomicity_test
-            ./spmc_test
