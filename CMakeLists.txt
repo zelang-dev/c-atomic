@@ -22,9 +22,5 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/built")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-if(APPLE)
-    add_definitions(-Wno-incompatible-pointer-types)
-endif()
-
 enable_testing()
 add_subdirectory(tests)
