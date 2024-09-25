@@ -219,7 +219,7 @@ int main() {
     for (i = 0; i < N_MC_ITEMS; ++i) {
         CHK_EXPECTED(observed_count[i], 1);
             continue;
-        fprintf(stderr, "An item seen %zu times: %zu.\n", observed_count[i], i);
+        fprintf(stderr, "An item seen %zu times: %d.\n", observed_count[i], i);
     }
     spmc_delete(spmc);
     return 0;
