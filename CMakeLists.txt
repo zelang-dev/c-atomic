@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8...3.14)
 
 project(
     c-atomic
-    VERSION 0.1.1
+    VERSION 0.1.2
     DESCRIPTION "C89 compatible atomics."
     HOMEPAGE_URL "https://github.com/zelang-dev/c-atomic"
     LANGUAGES C
@@ -21,6 +21,10 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/built")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
+if(APPLE)
+    add_definitions(-Wno-incompatible-pointer-types)
+endif()
 
 enable_testing()
 add_subdirectory(tests)
